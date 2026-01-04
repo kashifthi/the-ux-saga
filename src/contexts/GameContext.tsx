@@ -10,7 +10,7 @@ interface GameState {
 
 interface GameContextType extends GameState {
   addPoints: (amount: number) => void;
-  loseMoneyTrap: () => void;
+  loseMoneyTrap: (amount?: number) => void;
   addMistake: () => void;
   startGame: () => void;
   goToLevel: (level: number) => void;
@@ -35,9 +35,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, points: prev.points + amount }));
   }, []);
 
-  const loseMoneyTrap = useCallback(() => {
-    // -$99 per trap as per PRD
-    setState(prev => ({ ...prev, moneyLost: prev.moneyLost + 99 }));
+  const loseMoneyTrap = useCallback((amount: number = 99) => {
+    // Default -$99 per trap as per PRD, but allow custom amounts
+    setState(prev => ({ ...prev, moneyLost: prev.moneyLost + amount }));
   }, []);
 
   const addMistake = useCallback(() => {
