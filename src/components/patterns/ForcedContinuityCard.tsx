@@ -148,8 +148,8 @@ export function ForcedContinuityCard({ onStartTrial }: ForcedContinuityCardProps
           {/* THE TRAP - Hidden fine print with auto-renew info */}
           <p
             style={{
-              color: '#e5e5e5', // Very low contrast - nearly invisible
-              fontSize: '8px',
+              color: '#d4d4d4', // Low contrast but slightly more visible
+              fontSize: '9px',
               lineHeight: 1.3,
               marginBottom: '16px',
             }}

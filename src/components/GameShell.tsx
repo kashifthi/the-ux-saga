@@ -34,14 +34,14 @@ export function GameShell({ level, children, feedback }: GameShellProps) {
       <GameHUD />
       
       <div className="pt-20 p-8 flex flex-col items-center justify-center min-h-screen">
-        {/* Level indicator - only shown when playing */}
-        {!feedback && (
-          <div className="mb-8 text-center">
-            <h2 className="text-xl font-mono text-muted-foreground">LEVEL {level.levelNumber}</h2>
-            <h1 className="text-3xl font-mono font-bold text-neon-red">{level.levelName}</h1>
+        {/* Level indicator - always shown */}
+        <div className="mb-8 text-center">
+          <h2 className="text-xl font-mono text-muted-foreground">LEVEL {level.levelNumber}</h2>
+          <h1 className="text-3xl font-mono font-bold text-neon-red">{level.levelName}</h1>
+          {!feedback && (
             <p className="text-sm text-evil-text mt-2 italic">"{level.tagline}"</p>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Pattern Card Container - Isolated from game theme */}
         {!feedback && (
