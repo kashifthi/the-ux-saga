@@ -24,7 +24,7 @@ interface FeedbackProps {
 
 interface GameShellProps {
   level: LevelInfo;
-  children: ReactNode;
+  children?: ReactNode;
   feedback?: FeedbackProps;
 }
 
