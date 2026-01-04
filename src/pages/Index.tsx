@@ -1,14 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useGame } from '@/contexts/GameContext';
+import { LandingPage } from './LandingPage';
+import { Level1Placeholder } from './Level1Placeholder';
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const { currentLevel } = useGame();
+
+  // Route based on current level
+  if (currentLevel === 0) {
+    return <LandingPage />;
+  }
+
+  if (currentLevel === 1) {
+    return <Level1Placeholder />;
+  }
+
+  // Fallback for other levels (not implemented yet)
+  return <LandingPage />;
 };
 
 export default Index;
