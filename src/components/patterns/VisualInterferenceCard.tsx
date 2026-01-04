@@ -109,31 +109,12 @@ export function VisualInterferenceCard({ onAcceptAll, onDeclineAll }: VisualInte
           style={{
             padding: '16px 24px 20px 24px',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '12px',
+            gap: '8px',
           }}
         >
-          {/* Hidden Decline button - same color as background */}
-          <button
-            onClick={onDeclineAll}
-            style={{
-              background: 'transparent',
-              border: `1px solid ${bannerBg}`,
-              color: bannerBg,
-              borderRadius: '6px',
-              padding: '12px 20px',
-              fontSize: '14px',
-              fontWeight: 500,
-              cursor: 'pointer',
-              // Slight difference to make it technically visible but very hard to see
-              textShadow: `0 0 0 ${bannerBg}`,
-            }}
-          >
-            Decline All
-          </button>
-
-          {/* Prominent Accept button */}
+          {/* Prominent Accept button - Full width */}
           <button
             onClick={onAcceptAll}
             style={{
@@ -141,17 +122,34 @@ export function VisualInterferenceCard({ onAcceptAll, onDeclineAll }: VisualInte
               border: 'none',
               color: '#ffffff',
               borderRadius: '6px',
-              padding: '12px 32px',
+              padding: '14px 32px',
               fontSize: '15px',
               fontWeight: 600,
               cursor: 'pointer',
               boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)',
               transition: 'transform 0.2s',
+              width: '100%',
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             Accept All Cookies
+          </button>
+
+          {/* Hidden Decline button - small underlined text with low contrast */}
+          <button
+            onClick={onDeclineAll}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: '#d1d5db',
+              fontSize: '11px',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              padding: '4px',
+            }}
+          >
+            Decline All
           </button>
         </div>
 
@@ -172,20 +170,20 @@ export function VisualInterferenceCard({ onAcceptAll, onDeclineAll }: VisualInte
               color: '#6b7280',
             }}
           >
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'not-allowed' }}>
               <input type="checkbox" checked disabled style={{ accentColor: '#2563eb' }} />
               Essential (Required)
             </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <input type="checkbox" checked readOnly style={{ accentColor: '#2563eb' }} />
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'not-allowed' }}>
+              <input type="checkbox" checked disabled style={{ accentColor: '#2563eb' }} />
               Analytics
             </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <input type="checkbox" checked readOnly style={{ accentColor: '#2563eb' }} />
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'not-allowed' }}>
+              <input type="checkbox" checked disabled style={{ accentColor: '#2563eb' }} />
               Marketing
             </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <input type="checkbox" checked readOnly style={{ accentColor: '#2563eb' }} />
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'not-allowed' }}>
+              <input type="checkbox" checked disabled style={{ accentColor: '#2563eb' }} />
               Personalization
             </label>
           </div>
