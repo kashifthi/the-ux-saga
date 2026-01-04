@@ -4,6 +4,7 @@ import { Level1RoachMotel } from './Level1RoachMotel';
 import { Level2SneakIntoBasket } from './Level2SneakIntoBasket';
 import { Level3Confirmshaming } from './Level3Confirmshaming';
 import { Level4VisualInterference } from './Level4VisualInterference';
+import { Level5ForcedContinuity } from './Level5ForcedContinuity';
 
 const Index = () => {
   const { currentLevel } = useGame();
@@ -27,6 +28,10 @@ const Index = () => {
 
   if (currentLevel === 4) {
     return <Level4VisualInterference />;
+  }
+
+  if (currentLevel === 5) {
+    return <Level5ForcedContinuity />;
   }
 
   // Fallback for other levels (not implemented yet)
