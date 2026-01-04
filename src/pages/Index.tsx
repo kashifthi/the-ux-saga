@@ -1,6 +1,6 @@
 import { useGame } from '@/contexts/GameContext';
 import { LandingPage } from './LandingPage';
-import { Level1Placeholder } from './Level1Placeholder';
+import { Level1RoachMotel } from './Level1RoachMotel';
 
 const Index = () => {
   const { currentLevel } = useGame();
@@ -11,7 +11,7 @@ const Index = () => {
   }
 
   if (currentLevel === 1) {
-    return <Level1Placeholder />;
+    return <Level1RoachMotel />;
   }
 
   // Fallback for other levels (not implemented yet)
