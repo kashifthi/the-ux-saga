@@ -33,22 +33,24 @@ export function LandingPage() {
         <EvilMascot message="I've designed 5 perfect traps. No one escapes my dark patterns..." />
 
         {/* Welcome Text */}
-        <div className="evil-card p-6 md:p-8 text-center space-y-6">
-          <p className="text-2xl md:text-3xl text-foreground font-mono font-bold">
+        <div className="evil-card p-6 space-y-4">
+          <p className="text-lg md:text-xl text-foreground font-mono">
             Welcome, brave user.
           </p>
-          
-          <p className="text-lg md:text-xl text-neon-red font-mono neon-red-glow tracking-wide">
-            5 LEVELS. 5 DARK PATTERNS. 1 MISSION.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            <span className="text-neon-red font-semibold">"Dark patterns"</span> are sneaky design tricks that websites use to manipulate you 
+            into doing things you didn't intend — like subscribing, paying, or giving away your data.
           </p>
-          
-          <div className="flex flex-col gap-2 text-base md:text-lg font-mono">
-            <p className="text-neon-green">✓ Spot the trap = +Points</p>
-            <p className="text-neon-red">✗ Fall for it = -Money</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This game puts you through <span className="text-foreground font-semibold">5 levels</span> of real-world manipulation tactics. 
+            Your mission: spot the traps and avoid them.
+          </p>
+          <div className="flex flex-col gap-1 text-sm font-mono pt-2">
+            <p className="text-neon-green">✓ Spot the dark pattern = Earn points</p>
+            <p className="text-neon-red">✗ Fall for the trap = Lose virtual cash</p>
           </div>
-          
-          <p className="text-lg md:text-xl text-foreground font-mono">
-            Can you escape?
+          <p className="text-base text-foreground font-mono pt-2">
+            Can you escape with your wallet intact?
           </p>
         </div>
 
