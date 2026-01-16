@@ -60,6 +60,7 @@ export default {
         // Evil Neon Accents
         "neon-red": "hsl(var(--neon-red))",
         "neon-green": "hsl(var(--neon-green))",
+        "neon-gold": "hsl(var(--neon-gold))",
         "evil-text": "hsl(var(--evil-text))",
       },
       borderRadius: {

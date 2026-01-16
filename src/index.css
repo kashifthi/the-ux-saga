@@ -42,6 +42,7 @@
     /* Evil Neon Accents */
     --neon-red: 0 100% 50%;
     --neon-green: 120 100% 45%;
+    --neon-gold: 45 100% 50%;
 
     /* Evil Text */
     --evil-text: 0 0% 70%;
@@ -87,6 +88,7 @@
 
     --neon-red: 0 100% 50%;
     --neon-green: 120 100% 45%;
+    --neon-gold: 45 100% 50%;
 
     --evil-text: 0 0% 70%;
 
@@ -125,6 +127,13 @@
       0 0 5px hsl(var(--neon-green)),
       0 0 10px hsl(var(--neon-green)),
       0 0 20px hsl(var(--neon-green));
+  }
+
+  .neon-gold-glow {
+    text-shadow: 
+      0 0 5px hsl(var(--neon-gold)),
+      0 0 10px hsl(var(--neon-gold)),
+      0 0 20px hsl(var(--neon-gold));
   }
 
   .evil-border {
