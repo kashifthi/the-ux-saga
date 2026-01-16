@@ -12,7 +12,7 @@ interface PatternCardWrapperProps {
 export function PatternCardWrapper({ children }: PatternCardWrapperProps) {
   return (
     <div 
-      className="pattern-card-isolation"
+      className="pattern-card-isolation flex items-center justify-center"
       style={{
         // Reset all inherited styles
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
