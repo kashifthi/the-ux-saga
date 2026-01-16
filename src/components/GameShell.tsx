@@ -37,7 +37,7 @@ export function GameShell({ level, children, feedback }: GameShellProps) {
         {/* Level indicator - always shown */}
         <div className="mb-8 text-center">
           <h2 className="text-xl font-mono text-muted-foreground">LEVEL {level.levelNumber}</h2>
-          <h1 className="text-3xl font-mono font-bold text-neon-red">{level.levelName}</h1>
+          <h1 className="text-3xl font-mono font-bold text-foreground">{level.levelName}</h1>
           {!feedback && (
             <p className="text-sm text-evil-text mt-2 italic">"{level.tagline}"</p>
           )}
@@ -85,14 +85,14 @@ export function GameShell({ level, children, feedback }: GameShellProps) {
                 <Button
                   onClick={feedback.onRetry}
                   variant="outline"
-                  className="border-border hover:border-neon-red hover:text-neon-red"
+                  className="border-border hover:border-neon-red hover:text-neon-red h-10"
                 >
                   Try Again
                 </Button>
               )}
               <Button
                 onClick={feedback.onNextLevel}
-                className="bg-neon-green text-background hover:bg-neon-green/90"
+                className="bg-neon-green text-background hover:bg-neon-green/90 h-10"
               >
                 Next Level <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
