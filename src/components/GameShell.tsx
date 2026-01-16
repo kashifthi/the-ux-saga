@@ -52,7 +52,7 @@ export function GameShell({ level, children, feedback }: GameShellProps) {
 
         {/* Feedback - shown after interaction */}
         {feedback && (
-          <div className="evil-card p-8 max-w-lg w-full text-center space-y-6">
+          <div className="evil-card p-8 max-w-2xl w-full text-center space-y-6">
             <div className="text-6xl">
               {feedback.state === 'fail' ? '💸' : '🎉'}
             </div>

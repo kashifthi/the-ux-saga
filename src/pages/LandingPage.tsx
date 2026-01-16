@@ -33,7 +33,7 @@ export function LandingPage() {
         <EvilMascot message="I've designed 5 perfect traps. No one escapes my dark patterns..." />
 
         {/* Welcome Text */}
-        <div className="evil-card p-6 space-y-4 max-w-lg w-full">
+        <div className="evil-card p-6 space-y-4 max-w-2xl w-full">
           <p className="text-lg md:text-xl text-foreground font-mono">
             Welcome, brave user.
           </p>
