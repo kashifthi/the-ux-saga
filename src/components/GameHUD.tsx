@@ -1,11 +1,24 @@
 import { useGame } from '@/contexts/GameContext';
 import { DollarSign, Target, AlertTriangle } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
+import { Confetti } from './Confetti';
 
 export function GameHUD() {
   const { points, moneyLost, mistakesCount } = useGame();
   const [moneyAnimation, setMoneyAnimation] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const prevMoneyLost = useRef(moneyLost);
+  const prevPoints = useRef(points);
+
+  // Trigger confetti when points increase
+  useEffect(() => {
+    if (points > prevPoints.current) {
+      setShowConfetti(true);
+      const timer = setTimeout(() => setShowConfetti(false), 2500);
+      prevPoints.current = points;
+      return () => clearTimeout(timer);
+    }
+  }, [points]);
 
   // Trigger animation when moneyLost increases
   useEffect(() => {
@@ -18,7 +31,9 @@ export function GameHUD() {
   }, [moneyLost]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b-2 border-border backdrop-blur-sm">
+    <>
+      <Confetti active={showConfetti} />
+      <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b-2 border-border backdrop-blur-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="text-sm font-mono text-muted-foreground">
@@ -54,6 +69,7 @@ export function GameHUD() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
