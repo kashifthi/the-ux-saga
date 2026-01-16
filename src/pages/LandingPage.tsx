@@ -30,19 +30,27 @@ export function LandingPage() {
         </div>
 
         {/* Evil AI Mascot */}
-        <EvilMascot message="Oh, you think you're smart? Let's see how long your wallet survives..." />
+        <EvilMascot message="I've designed 5 perfect traps. No one escapes my dark patterns..." />
 
         {/* Welcome Text */}
         <div className="evil-card p-6 space-y-4">
           <p className="text-lg md:text-xl text-foreground font-mono">
-            Welcome to the Dark UX Saga.
+            Welcome, brave user.
           </p>
-          <p className="text-lg md:text-xl text-neon-red font-mono neon-red-glow">
-            Can you survive without losing your money?
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            <span className="text-neon-red font-semibold">"Dark patterns"</span> are sneaky design tricks that websites use to manipulate you 
+            into doing things you didn't intend — like subscribing, paying, or giving away your data.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Navigate through 5 levels of manipulative design patterns. 
-            Spot the dark patterns to earn points. Fall for the traps and lose virtual cash.
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This game puts you through <span className="text-foreground font-semibold">5 levels</span> of real-world manipulation tactics. 
+            Your mission: spot the traps and avoid them.
+          </p>
+          <div className="flex flex-col gap-1 text-sm font-mono pt-2">
+            <p className="text-neon-green">✓ Spot the dark pattern = Earn points</p>
+            <p className="text-neon-red">✗ Fall for the trap = Lose virtual cash</p>
+          </div>
+          <p className="text-base text-foreground font-mono pt-2">
+            Can you escape with your wallet intact?
           </p>
         </div>
 
