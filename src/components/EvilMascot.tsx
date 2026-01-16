@@ -2,19 +2,22 @@ import { Bot } from 'lucide-react';
 
 interface EvilMascotProps {
   message?: string;
+  variant?: 'evil' | 'success';
 }
 
-export function EvilMascot({ message }: EvilMascotProps) {
+export function EvilMascot({ message, variant = 'evil' }: EvilMascotProps) {
+  const isSuccess = variant === 'success';
+  
   return (
     <div className="flex flex-col items-center gap-4">
-      {/* Evil AI Mascot Placeholder */}
+      {/* AI Mascot */}
       <div className="relative">
-        <div className="w-24 h-24 bg-secondary border-2 border-neon-red flex items-center justify-center">
-          <Bot className="w-12 h-12 text-neon-red animate-pulse-evil" />
+        <div className={`w-24 h-24 bg-secondary border-2 flex items-center justify-center ${isSuccess ? 'border-neon-green' : 'border-neon-red'}`}>
+          <Bot className={`w-12 h-12 ${isSuccess ? 'text-neon-green' : 'text-neon-red animate-pulse-evil'}`} />
         </div>
         {/* Glowing eyes effect */}
-        <div className="absolute top-6 left-5 w-3 h-3 bg-neon-red rounded-full neon-red-glow" />
-        <div className="absolute top-6 right-5 w-3 h-3 bg-neon-red rounded-full neon-red-glow" />
+        <div className={`absolute top-6 left-5 w-3 h-3 rounded-full ${isSuccess ? 'bg-neon-green neon-green-glow' : 'bg-neon-red neon-red-glow'}`} />
+        <div className={`absolute top-6 right-5 w-3 h-3 rounded-full ${isSuccess ? 'bg-neon-green neon-green-glow' : 'bg-neon-red neon-red-glow'}`} />
       </div>
       
       {/* Speech bubble */}
