@@ -1,8 +1,21 @@
 import { useGame } from '@/contexts/GameContext';
 import { DollarSign, Target, AlertTriangle } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 
 export function GameHUD() {
   const { points, moneyLost, mistakesCount } = useGame();
+  const [moneyAnimation, setMoneyAnimation] = useState(false);
+  const prevMoneyLost = useRef(moneyLost);
+
+  // Trigger animation when moneyLost increases
+  useEffect(() => {
+    if (moneyLost > prevMoneyLost.current) {
+      setMoneyAnimation(true);
+      const timer = setTimeout(() => setMoneyAnimation(false), 600);
+      prevMoneyLost.current = moneyLost;
+      return () => clearTimeout(timer);
+    }
+  }, [moneyLost]);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-background/95 border-b-2 border-border backdrop-blur-sm">
@@ -22,7 +35,9 @@ export function GameHUD() {
             </div>
             
             {/* Money Lost */}
-            <div className="flex items-center gap-2">
+            <div className={`flex items-center gap-2 transition-all ${
+              moneyAnimation ? 'animate-shake scale-110' : ''
+            }`}>
               <DollarSign className="w-4 h-4 text-neon-red" />
               <span className="font-mono text-neon-red neon-red-glow">
                 -${moneyLost}
