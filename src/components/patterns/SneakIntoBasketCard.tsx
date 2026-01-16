@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PatternCardWrapper } from './PatternCardWrapper';
-import { HelpCircle, Lock, Truck, ShieldCheck } from 'lucide-react';
+import { X, Lock, Truck, ShieldCheck } from 'lucide-react';
 
 interface SneakIntoBasketCardProps {
   onPurchaseWithTrap: () => void;
@@ -38,8 +38,6 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
     },
   ]);
 
-  const [showTooltip, setShowTooltip] = useState(false);
-
   const hasProtection = items.some(i => i.id === 'protection');
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shipping = 0;
@@ -47,7 +45,6 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
 
   const removeProtection = () => {
     setItems(prev => prev.filter(i => i.id !== 'protection'));
-    setShowTooltip(false);
   };
 
   const handlePurchase = () => {
@@ -67,6 +64,8 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
           boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)',
           overflow: 'hidden',
           border: '1px solid #e5e7eb',
+          width: '420px',
+          minHeight: '480px',
         }}
       >
         {/* Header */}
@@ -110,7 +109,7 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
 
           {/* Items */}
           <div style={{ marginBottom: '20px' }}>
-            {items.map((item) => (
+            {items.map((item, index) => (
               <div
                 key={item.id}
                 style={{
@@ -118,7 +117,7 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
                   padding: '12px 0',
-                  borderBottom: '1px solid #f3f4f6',
+                  borderBottom: index < items.length - 1 ? '1px solid #f3f4f6' : 'none',
                 }}
               >
                 <div style={{ flex: 1 }}>
@@ -167,72 +166,32 @@ export function SneakIntoBasketCard({ onPurchaseWithTrap, onPurchaseClean }: Sne
                     ${item.price.toFixed(2)}
                   </span>
                   
-                  {/* Hidden edit in tooltip */}
+                  {/* X button to remove protection */}
                   {item.id === 'protection' && (
-                    <div style={{ position: 'relative' }}>
-                      <button
-                        onClick={() => setShowTooltip(!showTooltip)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          padding: '2px',
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <HelpCircle 
-                          style={{ 
-                            width: '12px', 
-                            height: '12px', 
-                            color: '#d1d5db',
-                          }} 
-                        />
-                      </button>
-                      
-                      {showTooltip && (
-                        <div
-                          style={{
-                            position: 'absolute',
-                            right: 0,
-                            top: '100%',
-                            marginTop: '4px',
-                            backgroundColor: '#ffffff',
-                            border: '1px solid #e5e7eb',
-                            borderRadius: '6px',
-                            padding: '12px',
-                            width: '200px',
-                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                            zIndex: 10,
-                          }}
-                        >
-                          <p
-                            style={{
-                              fontSize: '12px',
-                              color: '#6b7280',
-                              margin: 0,
-                              marginBottom: '8px',
-                            }}
-                          >
-                            Premium Handling ensures your order arrives safely with extended protection.
-                          </p>
-                          <button
-                            onClick={removeProtection}
-                            style={{
-                              background: 'none',
-                              border: 'none',
-                              fontSize: '10px',
-                              color: '#d1d5db',
-                              cursor: 'pointer',
-                              padding: 0,
-                              textDecoration: 'underline',
-                            }}
-                          >
-                            edit selection
-                          </button>
-                        </div>
-                      )}
-                    </div>
+                    <button
+                      onClick={removeProtection}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: '4px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        borderRadius: '50%',
+                        transition: 'background-color 0.15s',
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#fee2e2'}
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      title="Remove item"
+                    >
+                      <X 
+                        style={{ 
+                          width: '14px', 
+                          height: '14px', 
+                          color: '#9ca3af',
+                        }} 
+                      />
+                    </button>
                   )}
                 </div>
               </div>
