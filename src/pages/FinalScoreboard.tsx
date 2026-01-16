@@ -2,6 +2,7 @@ import { useGame } from '@/contexts/GameContext';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { EvilMascot } from '@/components/EvilMascot';
+import { Confetti } from '@/components/Confetti';
 import { Trophy, Skull, DollarSign, Target, RotateCcw } from 'lucide-react';
 
 const TOTAL_LEVELS = 5;
@@ -65,8 +66,13 @@ export function FinalScoreboard() {
     return "MAGNIFICENT! You clicked on everything! You're every product manager's dream user. We've already sold your data to 47 advertisers!";
   };
 
+  const isPatternMaster = gullibilityScore === 0;
+
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      {/* Gold confetti for Pattern Master */}
+      <Confetti active={isPatternMaster} color="gold" />
+      
       {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
       
@@ -146,14 +152,14 @@ export function FinalScoreboard() {
 
         {/* Evil AI Message */}
         <div className="flex items-start gap-4">
-          <EvilMascot variant={gullibilityScore === 0 ? 'winner' : 'evil'} />
+          <EvilMascot variant={isPatternMaster ? 'winner' : 'evil'} />
           <div className={`flex-1 rounded-lg p-4 ${
-            gullibilityScore === 0 
+            isPatternMaster 
               ? 'bg-neon-gold/10 border border-neon-gold/30' 
               : 'bg-destructive/10 border border-destructive/30'
           }`}>
             <p className={`font-medium italic ${
-              gullibilityScore === 0 ? 'text-neon-gold' : 'text-destructive'
+              isPatternMaster ? 'text-neon-gold' : 'text-destructive'
             }`}>
               "{getEvilMessage()}"
             </p>

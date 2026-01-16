@@ -10,10 +10,24 @@ interface Particle {
 
 interface ConfettiProps {
   active: boolean;
+  color?: 'green' | 'gold';
 }
 
-export function Confetti({ active }: ConfettiProps) {
+export function Confetti({ active, color = 'green' }: ConfettiProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
+
+  const colorConfig = {
+    green: {
+      bg: 'bg-neon-green',
+      shadow: 'hsl(var(--neon-green))',
+    },
+    gold: {
+      bg: 'bg-neon-gold',
+      shadow: 'hsl(var(--neon-gold))',
+    },
+  };
+
+  const { bg, shadow } = colorConfig[color];
 
   useEffect(() => {
     if (active) {
@@ -35,12 +49,12 @@ export function Confetti({ active }: ConfettiProps) {
       {particles.map((p) => (
         <div
           key={p.id}
-          className="absolute rounded-full bg-neon-green animate-confetti-fall"
+          className={`absolute rounded-full ${bg} animate-confetti-fall`}
           style={{
             left: `${p.x}%`,
             width: p.size,
             height: p.size,
-            boxShadow: '0 0 6px hsl(var(--neon-green)), 0 0 12px hsl(var(--neon-green))',
+            boxShadow: `0 0 6px ${shadow}, 0 0 12px ${shadow}`,
             animationDelay: `${p.delay}s`,
             animationDuration: `${p.duration}s`,
           }}
