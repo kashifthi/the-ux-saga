@@ -146,9 +146,15 @@ export function FinalScoreboard() {
 
         {/* Evil AI Message */}
         <div className="flex items-start gap-4">
-          <EvilMascot />
-          <div className="flex-1 bg-destructive/10 border border-destructive/30 rounded-lg p-4">
-            <p className="text-destructive font-medium italic">
+          <EvilMascot variant={gullibilityScore === 0 ? 'winner' : 'evil'} />
+          <div className={`flex-1 rounded-lg p-4 ${
+            gullibilityScore === 0 
+              ? 'bg-neon-gold/10 border border-neon-gold/30' 
+              : 'bg-destructive/10 border border-destructive/30'
+          }`}>
+            <p className={`font-medium italic ${
+              gullibilityScore === 0 ? 'text-neon-gold' : 'text-destructive'
+            }`}>
               "{getEvilMessage()}"
             </p>
           </div>
