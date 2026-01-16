@@ -42,15 +42,22 @@ export function LandingPage() {
             into doing things you didn't intend — like subscribing, paying, or giving away your data.
           </p>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            This game puts you through <span className="text-foreground font-semibold">5 levels</span> of real-world manipulation tactics. 
-            Your mission: spot the traps and avoid them.
+            <span className="text-foreground font-semibold">This is a simulation.</span> We'll show you 5 real manipulation tactics, and track 
+            what they would cost you in real life.
           </p>
-          <div className="flex flex-col gap-1 text-sm font-mono pt-2">
-            <p className="text-neon-green">✓ Spot the dark pattern = Earn points</p>
-            <p className="text-neon-red">✗ Fall for the trap = Lose virtual cash</p>
+          <div className="border-t border-border pt-3 mt-2">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">How it works:</p>
+            <div className="flex flex-col gap-1 text-sm font-mono">
+              <p className="text-neon-green">✓ Spot the hidden trick → You escape unharmed (+100 pts)</p>
+              <p className="text-neon-red">✗ Fall for the trap → See what it would have cost you ($$$)</p>
+            </div>
           </div>
+          <p className="text-xs text-muted-foreground leading-relaxed pt-2">
+            At the end, we'll reveal your <span className="text-foreground">"Gullibility Score"</span> and how much 
+            you would have "donated" to shady companies.
+          </p>
           <p className="text-base text-foreground font-mono pt-2">
-            Can you escape with your wallet intact?
+            Ready to test your defenses?
           </p>
         </div>
 
