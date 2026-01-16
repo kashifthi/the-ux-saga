@@ -65,7 +65,7 @@ export function GameShell({ level, children, feedback }: GameShellProps) {
               {feedback.state === 'fail' ? feedback.failMessage : feedback.successMessage}
             </p>
             
-            <EvilMascot message={feedback.evilMessage} />
+            <EvilMascot message={feedback.evilMessage} variant={feedback.state === 'success' ? 'success' : 'evil'} />
             
             {/* Educational content */}
             <div className={`bg-secondary/30 border p-4 text-left space-y-2 ${
