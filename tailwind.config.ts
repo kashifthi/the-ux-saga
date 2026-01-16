@@ -92,6 +92,16 @@ export default {
           "10%, 30%, 50%, 70%, 90%": { transform: "translateX(-4px)" },
           "20%, 40%, 60%, 80%": { transform: "translateX(4px)" },
         },
+        "confetti-fall": {
+          "0%": { 
+            transform: "translateY(-10px) rotate(0deg)", 
+            opacity: "1" 
+          },
+          "100%": { 
+            transform: "translateY(100vh) rotate(720deg)", 
+            opacity: "0" 
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -99,6 +109,7 @@ export default {
         "pulse-evil": "pulse-evil 2s ease-in-out infinite",
         "glitch": "glitch 0.3s ease-in-out infinite",
         "shake": "shake 0.5s ease-in-out",
+        "confetti-fall": "confetti-fall 2s ease-out forwards",
       },
       fontFamily: {
         mono: ["'Courier New'", "monospace"],
